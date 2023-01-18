@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+<style>
+.tt{
+          text-align: center;
+          margin: 20px 30px;
+          color: rgb(12, 12, 11);
+          background: rgb(170, 158, 158);
+          padding: 5px 40px;
+          font-size: 20px;
+          font-weight: bolder;
+          border:rgb(12, 12, 11); 
+          border-width: 0.5rem;
+        
+          cursor: pointer;
+      }
+.tt{ margin-right: 100%;}
+
+</style>
+</head>
+
+<body ng-app="MyApp" ng-controller="MyCont">
+  <div style="color: rgb(8, 8, 8);",>CALCULATOR <br><br></div>  
+    <b> INPUT 1ST VALUE</b><br>
+        <input style="border-style:groove; border-radius: 10px; border-width: 0.3rem; border-color: rgb(15, 14, 14);" type="number" ng-model="first" required>
+    </div><br>
+    
+<b>INPUT 2ND VALUE</b><br>
+  <input style="border-style:groove; border-radius: 10px; border-width: 0.3rem; border-color: rgb(2, 2, 2);" type="number" ng-model="second" required>
+
+</div><br>
+<div style="text-align: center;">
+    <button class="tt" ng-click="add()"> <b>+</b></button>
+    <button class="tt" ng-click="sub()"><b>-</b></button>
+    <button class="tt" ng-click="mul()"><b>*</b></button>
+    <button class="tt" ng-click="divi()"><b>/</b></button>
+    <button class="tt" ng-click="mod()"><b>%</b></button> 
+</div>
+
+<br>
+     <b>TOTAL</b> : {{total}}
+</div>
+
+<script>
+    var appli=angular.module('MyApp',[])
+    appli.controller('MyCont' , function($scope){
+    $scope.first=0;
+    $scope.second=0;
+    $scope.add=function(){
+        this.total=this.first+this.second
+    }
+    $scope.sub=function(){
+        this.total=this.first-this.second
+    }
+    $scope.mul=function(){
+        this.total=this.first*this.second
+    }
+    $scope.divi=function(){
+        this.total=this.first/this.second
+    }
+    $scope.mod=function(){
+        this.total=this.first%this.second
+    }
+    })
+</script>
+</div>
+</body>
+</html>

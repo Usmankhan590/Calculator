@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+<style>
+.tt{
+          text-align: center;
+          margin: 20px 30px;
+          color: rgb(87, 57, 12);
+          background: rgb(247, 228, 228);
+          padding: 15px 35px;
+          font-size: 30px;
+          font-weight: bolder;
+          border: 3px solid darkred; 
+          border-width: 0.5rem;
+        
+          cursor: pointer;
+      }
+      .tt:hover{
+          animation: shake .30s linear infinite;
+      }
+      @keyframes shake {
+
+        0%{
+            transform: translateY(0);
+        }
+        25%{
+            transform: translateY(-10px);
+        }
+        75%{
+            transform: translateY(10px);
+        }
+        100%{
+            transform: translateY(0);
+        }
+          
+      }
+
+
+</style>
+</head>
+
+<body ng-app="MyApp" ng-controller="MyCont">
+    
+    <h1 style="font-family: 'Stylish', sans-serif;font-weight: bolder; font-size: 2rem; margin-top: 10vh;
+    text-align: center; color: rgb(87, 57, 12); text-decoration: underline darkred;">ASSIGNING THE CALCULATOR</h1><br><br>
+    <div style="text-align: center; font-size: 30px; font-family: 'Stylish', sans-serif; color: rgb(87, 57, 12);">
+       <b> INPUT 1ST VALUE</b><br>
+        <input style="border-style:groove; border-radius: 10px; border-width: 0.5rem; border-color: darkred;" type="number" ng-model="first" required>
+    </div><br>
+     
+<div style="text-align: center; font-size: 30px;font-family: 'Stylish', sans-serif; color: rgb(87, 57, 12);">
+<b>INPUT 2ND VALUE</b><br>
+  <input style="border-style:groove; border-radius: 10px; border-width: 0.5rem; border-color: darkred;" type="number" ng-model="second" required>
+
+</div><br>
+<div style="text-align: center;">
+    <button class="tt" ng-click="add()"> <b>+</b></button>
+    <button class="tt" ng-click="sub()"><b>-</b></button>
+    <button class="tt" ng-click="mul()"><b>*</b></button>
+    <button class="tt" ng-click="divi()"><b>/</b></button>
+    <button class="tt" ng-click="mod()"><b>%</b></button> 
+</div>
+
+<br>
+<div style="text-align: center; font-size: 30px;font-family: 'Stylish', sans-serif; color: rgb(87, 57, 12);text-decoration: underline darkred;">   
+     <b>TOTAL</b> : {{total}}
+</div>
+
+<script>
+    var appli=angular.module('MyApp',[])
+    appli.controller('MyCont' , function($scope){
+    $scope.first=0;
+    $scope.second=0;
+    $scope.add=function(){
+        this.total=this.first+this.second
+    }
+    $scope.sub=function(){
+        this.total=this.first-this.second
+    }
+    $scope.mul=function(){
+        this.total=this.first*this.second
+    }
+    $scope.divi=function(){
+        this.total=this.first/this.second
+    }
+    $scope.mod=function(){
+        this.total=this.first%this.second
+    }
+    })
+</script>
+</div>
+</body>
+</html>
